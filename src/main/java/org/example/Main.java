@@ -15,7 +15,7 @@ public class Main {
         try {
             firstNum = scanner.nextInt();
         } catch (InputMismatchException e) {
-            int i = 0;
+            int i;
             do {
                 i = 0;
                 System.out.println("Use digits only!");
@@ -34,7 +34,7 @@ public class Main {
         try {
             secondNum = scanner.nextInt();
         } catch (InputMismatchException e) {
-            int i = 0;
+            int i;
             do {
                 i = 0;
                 System.out.println("Use digits only!");
@@ -50,24 +50,33 @@ public class Main {
 
         //operator input
         System.out.print("Enter the operator (+, -, *, /): ");
-        char [] operators = new char[]{'+', '-', '*', '/'};
         operator = scanner.next().charAt(0);
-            int i = 0;
-            do {
-                    i = 0;
-                    sw
-                    System.out.println("Use valid operators only!");
-                    scanner.nextLine();
-                    System.out.print("Enter the operator (+, -, *, /): ");
-                    operator = scanner.next().charAt(0);
-                    i = 1;
-            } while (i != 0 );
+        int i;
+        do {
+            i=1;
+            switch (operator) {
+                case '+', '/', '*', '-' -> i = 0;
+            }
+            if (i!=0){
+                System.out.println("Use valid operators only!");
+                scanner.nextLine();
+                System.out.print("Enter the operator (+, -, *, /): ");
+                operator = scanner.next().charAt(0);
+            }
+        } while (i != 0 );
 
-        switch (operators[i]) {
+        switch (operator) {
             case '+' -> System.out.println(firstNum + secondNum);
             case '-' -> System.out.println(firstNum - secondNum);
             case '*' -> System.out.println(firstNum * secondNum);
-            case '/' -> System.out.println(firstNum / secondNum);
+            case '/' -> {
+                if (secondNum == 0){
+                    System.err.println("Can't division by zero!");
+                }
+                else {
+                    System.out.println((float) firstNum / secondNum);
+                }
+            }
         }
     }
 }
