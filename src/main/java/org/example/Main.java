@@ -1,7 +1,73 @@
 package org.example;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Scanner scanner = new Scanner(System.in);
+        int firstNum = 0;
+        int secondNum = 0;
+        char operator;
+
+        //first number input
+        System.out.print("Enter first number: ");
+        try {
+            firstNum = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            int i = 0;
+            do {
+                i = 0;
+                System.out.println("Use digits only!");
+                scanner.nextLine();
+                try {
+                    System.out.print("Enter first number: ");
+                    firstNum = scanner.nextInt();
+                } catch (InputMismatchException a) {
+                    i = 1;
+                }
+            } while (i !=0 );
+        }
+
+        //second number input
+        System.out.print("Enter second number: ");
+        try {
+            secondNum = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            int i = 0;
+            do {
+                i = 0;
+                System.out.println("Use digits only!");
+                scanner.nextLine();
+                try {
+                    System.out.print("Enter second number: ");
+                    secondNum = scanner.nextInt();
+                } catch (InputMismatchException a) {
+                    i = 1;
+                }
+            } while (i !=0 );
+        }
+
+        //operator input
+        System.out.print("Enter the operator (+, -, *, /): ");
+        char [] operators = new char[]{'+', '-', '*', '/'};
+        operator = scanner.next().charAt(0);
+            int i = 0;
+            do {
+                    i = 0;
+                    sw
+                    System.out.println("Use valid operators only!");
+                    scanner.nextLine();
+                    System.out.print("Enter the operator (+, -, *, /): ");
+                    operator = scanner.next().charAt(0);
+                    i = 1;
+            } while (i != 0 );
+
+        switch (operators[i]) {
+            case '+' -> System.out.println(firstNum + secondNum);
+            case '-' -> System.out.println(firstNum - secondNum);
+            case '*' -> System.out.println(firstNum * secondNum);
+            case '/' -> System.out.println(firstNum / secondNum);
+        }
     }
 }
