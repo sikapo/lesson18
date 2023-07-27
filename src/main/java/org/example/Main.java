@@ -11,9 +11,8 @@ public class Main {
         char operator;
 
         //first number input
-        System.out.print("Enter first number: ");
         try {
-            firstNum = scanner.nextInt();
+            firstNum = Integer.parseInt(args[0]);
         } catch (InputMismatchException e) {
             int i;
             do {
@@ -30,9 +29,8 @@ public class Main {
         }
 
         //second number input
-        System.out.print("Enter second number: ");
         try {
-            secondNum = scanner.nextInt();
+            secondNum = Integer.parseInt(args[1]);
         } catch (InputMismatchException e) {
             int i;
             do {
@@ -49,8 +47,7 @@ public class Main {
         }
 
         //operator input
-        System.out.print("Enter the operator (+, -, *, /): ");
-        operator = scanner.next().charAt(0);
+        operator = args[2].charAt(0);
         int i;
         do {
             i=1;
