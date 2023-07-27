@@ -66,15 +66,15 @@ public class Main {
         } while (i != 0 );
 
         switch (operator) {
-            case '+' -> System.out.println(firstNum + secondNum);
-            case '-' -> System.out.println(firstNum - secondNum);
-            case '*' -> System.out.println(firstNum * secondNum);
+            case '+' -> System.out.println("The result is: " + (firstNum + secondNum));
+            case '-' -> System.out.println("The result is: " + (firstNum - secondNum));
+            case '*' -> System.out.println("The result is: " + (firstNum * secondNum));
             case '/' -> {
                 if (secondNum == 0){
                     System.err.println("Can't division by zero!");
                 }
                 else {
-                    System.out.println((float) firstNum / secondNum);
+                    System.out.println("The result is: " + (float) firstNum / secondNum);
                 }
             }
         }
